@@ -63,11 +63,19 @@ public class GridManager : MonoBehaviour
             int random_y = Mathf.FloorToInt(Random.Range(11, 29));
 
             GameObject enemy_Position = Key[new Vector2Int(random_x - (int)offset, random_y - (int)offset)];
+            GameObject enemy_Position2 = Key[new Vector2Int(random_x + 1 - (int)offset, random_y - (int)offset)];
+            GameObject enemy_Position3 = Key[new Vector2Int(random_x - (int)offset, random_y + 1 - (int)offset)];
+            GameObject enemy_Position4 = Key[new Vector2Int(random_x + 1 - (int)offset, random_y + 1 - (int)offset)];
 
-            if (!enemy_Position.GetComponent<Tile>().isEnemy())
+            if (!enemy_Position.GetComponent<Tile>().isObstacle() && !enemy_Position2.GetComponent<Tile>().isObstacle() && !enemy_Position3.GetComponent<Tile>().isObstacle()
+                && !enemy_Position4.GetComponent<Tile>().isObstacle() && !enemy_Position.GetComponent<Tile>().isPlayer() && !enemy_Position2.GetComponent<Tile>().isPlayer() && !enemy_Position3.GetComponent<Tile>().isPlayer()
+                && !enemy_Position4.GetComponent<Tile>().isPlayer()) // do food
             {
                 enemyObject = Instantiate(Enemy_object, enemy_Position.transform.position, Quaternion.identity);
                 enemy_Position.GetComponent<Tile>().setEnemy(true);
+                enemy_Position2.GetComponent<Tile>().setEnemy(true);
+                enemy_Position3.GetComponent<Tile>().setEnemy(true);
+                enemy_Position4.GetComponent<Tile>().setEnemy(true);
                 break;
             }
         }
@@ -80,11 +88,19 @@ public class GridManager : MonoBehaviour
             int random_y = Mathf.FloorToInt(Random.Range(11, 29));
 
             GameObject enemy_Position = Key[new Vector2Int(random_x - (int)offset, random_y - (int)offset)];
+            GameObject enemy_Position2 = Key[new Vector2Int(random_x + 1 - (int)offset, random_y - (int)offset)];
+            GameObject enemy_Position3 = Key[new Vector2Int(random_x - (int)offset, random_y + 1 - (int)offset)];
+            GameObject enemy_Position4 = Key[new Vector2Int(random_x + 1 - (int)offset, random_y + 1 - (int)offset)];
 
-            if (!enemy_Position.GetComponent<Tile>().isEnemy())
+            if (!enemy_Position.GetComponent<Tile>().isObstacle() && !enemy_Position2.GetComponent<Tile>().isObstacle() && !enemy_Position3.GetComponent<Tile>().isObstacle()
+                && !enemy_Position4.GetComponent<Tile>().isObstacle() && !enemy_Position.GetComponent<Tile>().isPlayer() && !enemy_Position2.GetComponent<Tile>().isPlayer() && !enemy_Position3.GetComponent<Tile>().isPlayer()
+                && !enemy_Position4.GetComponent<Tile>().isPlayer())
             {
                 enemyObject2 = Instantiate(Enemy_object, enemy_Position.transform.position, Quaternion.identity);
                 enemy_Position.GetComponent<Tile>().setEnemy(true);
+                enemy_Position2.GetComponent<Tile>().setEnemy(true);
+                enemy_Position3.GetComponent<Tile>().setEnemy(true);
+                enemy_Position4.GetComponent<Tile>().setEnemy(true);
                 break;
             }
         }
@@ -107,12 +123,20 @@ public class GridManager : MonoBehaviour
             int random_x = Mathf.FloorToInt(Random.Range(1, 29));
             int random_y = Mathf.FloorToInt(Random.Range(11, 29));
 
-            GameObject player_Position = Key[new Vector2Int(random_x - (int)offset, random_y - (int)offset)];
 
-            if (!player_Position.GetComponent<Tile>().isPlayer())
+            GameObject player_Position = Key[new Vector2Int(random_x - (int)offset, random_y - (int)offset)];
+            GameObject player_Position2 = Key[new Vector2Int(random_x + 1 - (int)offset, random_y - (int)offset)];
+            GameObject player_Position3 = Key[new Vector2Int(random_x - (int)offset, random_y + 1 - (int)offset)];
+            GameObject player_Position4 = Key[new Vector2Int(random_x + 1 - (int)offset, random_y + 1 - (int)offset)];
+
+            if (!player_Position.GetComponent<Tile>().isEnemy() && !player_Position2.GetComponent<Tile>().isEnemy() && !player_Position3.GetComponent<Tile>().isEnemy() && !player_Position4.GetComponent<Tile>().isEnemy()
+                && !player_Position.GetComponent<Tile>().isObstacle() && !player_Position2.GetComponent<Tile>().isObstacle() && !player_Position3.GetComponent<Tile>().isObstacle() && !player_Position4.GetComponent<Tile>().isObstacle())
             {
                 playerObject = Instantiate(PlayerObject, player_Position.transform.position, Quaternion.identity);
                 player_Position.GetComponent<Tile>().setPlayer(true);
+                player_Position2.GetComponent<Tile>().setPlayer(true);
+                player_Position3.GetComponent<Tile>().setPlayer(true);
+                player_Position4.GetComponent<Tile>().setPlayer(true);
                 break;
             }
         }
