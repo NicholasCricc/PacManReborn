@@ -197,4 +197,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WayPointList: []
-  LocationPoint: 0
+  LocationPoint: 5

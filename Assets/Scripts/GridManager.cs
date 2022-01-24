@@ -50,16 +50,17 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    public static void SpawnerEnemy(GameObject Enemy_object, GameObject PlayerPos)
+    public static void SpawnerEnemy(GameObject Enemy_object)
     {
         float offset = (GridManager.Width / 2) - 0.5f;
         GameObject enemyObject;
+        GameObject enemyObject2;
 
 
         while (true)
         {
-            int random_x = Mathf.FloorToInt(Random.Range(1, 99));
-            int random_y = Mathf.FloorToInt(Random.Range(11, 99));
+            int random_x = Mathf.FloorToInt(Random.Range(1, 29));
+            int random_y = Mathf.FloorToInt(Random.Range(11, 29));
 
             GameObject enemy_Position = Key[new Vector2Int(random_x - (int)offset, random_y - (int)offset)];
 
@@ -73,29 +74,51 @@ public class GridManager : MonoBehaviour
 
         enemyObject.GetComponent<Enemy>().WayPointList = new List<GameObject>();
 
-        for (int x = 0; x < 2; x++)
+        while (true)
         {
+            int random_x = Mathf.FloorToInt(Random.Range(1, 29));
+            int random_y = Mathf.FloorToInt(Random.Range(11, 29));
 
-            //Instantiate(myEnemyPrefab, new Vector3(15, 15, 0), Quaternion.identity);
+            GameObject enemy_Position = Key[new Vector2Int(random_x - (int)offset, random_y - (int)offset)];
 
-            while (true)
+            if (!enemy_Position.GetComponent<Tile>().isEnemy())
             {
-                int random_x = Mathf.FloorToInt(Random.Range(1, 99));
-                int random_y = Mathf.FloorToInt(Random.Range(11, 99));
-                offset = (GridManager.Width / 2) - 0.5f;
-                Debug.Log(offset);
-
-                GameObject Playerpos = Key[new Vector2Int(random_x - (int)offset, random_y - (int)offset)];
-
-                if (!Playerpos.GetComponent<Tile>().isObstacle())
-                {
-                    GameObject playerobject = Instantiate(PlayerPos, Playerpos.transform.position, Quaternion.identity);
-                    enemyObject.GetComponent<Enemy>().WayPointList.Add(playerobject);
-                    Playerpos.GetComponent<Tile>().setPlayer(true);
-                    break;
-                }
+                enemyObject2 = Instantiate(Enemy_object, enemy_Position.transform.position, Quaternion.identity);
+                enemy_Position.GetComponent<Tile>().setEnemy(true);
+                break;
             }
         }
+
+        
+        enemyObject2.GetComponent<Enemy>().WayPointList = new List<GameObject>();
+
+        AstarPath.active.Scan();
+
+    }
+
+    public static void PlayerSpawn(GameObject PlayerObject)
+    {
+        float offset = (GridManager.Width / 2) - 0.5f;
+        GameObject playerObject;
+
+
+        while (true)
+        {
+            int random_x = Mathf.FloorToInt(Random.Range(1, 29));
+            int random_y = Mathf.FloorToInt(Random.Range(11, 29));
+
+            GameObject player_Position = Key[new Vector2Int(random_x - (int)offset, random_y - (int)offset)];
+
+            if (!player_Position.GetComponent<Tile>().isPlayer())
+            {
+                playerObject = Instantiate(PlayerObject, player_Position.transform.position, Quaternion.identity);
+                player_Position.GetComponent<Tile>().setPlayer(true);
+                break;
+            }
+        }
+
+        //playerObject.GetComponent<Enemy>().WayPointList = new List<GameObject>();
+
         AstarPath.active.Scan();
     }
 }

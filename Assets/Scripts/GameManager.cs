@@ -23,11 +23,17 @@ public class GameManager : MonoBehaviour
         GridManager.CreateGrid(30, 30, Tile);
         //Player.transform.position = GridManager.getSpawnLocation();
         SpawnEnemy();
+        SpawnPlayer();
     }
 
     public void SpawnEnemy()
     {
-        GridManager.SpawnerEnemy(Enemy, Player);
+        GridManager.SpawnerEnemy(Enemy);
+    }
+
+    public void SpawnPlayer()
+    {
+        GridManager.PlayerSpawn(Player);
     }
 
     // Update is called once per frame
