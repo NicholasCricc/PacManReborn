@@ -21,7 +21,13 @@ public class GameManager : MonoBehaviour
         astarAIs = FindObjectsOfType<MonoBehaviour>().OfType<IAstarAI>().ToArray();
         mainCam = Camera.main;
         GridManager.CreateGrid(30, 30, Tile);
-        Player.transform.position = GridManager.getSpawnLocation();
+        //Player.transform.position = GridManager.getSpawnLocation();
+        SpawnEnemy();
+    }
+
+    public void SpawnEnemy()
+    {
+        GridManager.SpawnerEnemy(Enemy, Player);
     }
 
     // Update is called once per frame

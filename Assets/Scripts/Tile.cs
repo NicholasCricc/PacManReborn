@@ -6,7 +6,7 @@ public class Tile : MonoBehaviour
 {
     private bool Obstacle = false;
     private bool Player = false;
-    private bool Food = false;
+    //private bool Food = false;
     private bool Enemy = false;
 
     public bool isObstacle()
@@ -17,10 +17,10 @@ public class Tile : MonoBehaviour
     {
         return Player;
     }
-    public bool isFood()
-    {
-        return Food;
-    }
+    //public bool isFood()
+    //{
+    //    return Food;
+    //}
     public bool isEnemy()
     {
         return Enemy;
@@ -36,21 +36,17 @@ public class Tile : MonoBehaviour
     public void setPlayer(bool player)
     {
         Player = player;
-        this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = player;
-        this.gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = player;
     }
 
-    public void setFood(bool food)
-    {
-        Food = food;
-        this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = food;
-        this.gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = food;
-    }
+    //public void setFood(bool food)
+    //{
+    //    Food = food;
+    //    this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = food;
+    //    this.gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = food;
+    //}
 
     public void setEnemy(bool enemy)
     {
         Enemy = enemy;
-        this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = enemy;
-        this.gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = enemy;
     }
 }
