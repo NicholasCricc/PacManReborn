@@ -7,6 +7,8 @@ public class GridManager : MonoBehaviour
     private static int Width;
     private static int Height;
 
+
+
     //public GameObject myEnemyPrefab;
 
     public static Dictionary<Vector2Int, GameObject> Key = new Dictionary<Vector2Int, GameObject>();
@@ -275,6 +277,6 @@ public class GridManager : MonoBehaviour
     }
     public static void Easy()
     {
-
+        
     }
 }
