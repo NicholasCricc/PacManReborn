@@ -9,7 +9,7 @@ public class GridManager : MonoBehaviour
 
     //public GameObject myEnemyPrefab;
 
-    private static Dictionary<Vector2Int, GameObject> Key = new Dictionary<Vector2Int, GameObject>();
+    public static Dictionary<Vector2Int, GameObject> Key = new Dictionary<Vector2Int, GameObject>();
     public static void CreateGrid(int width, int height, GameObject TilePrefab)
     {
         Width = width;

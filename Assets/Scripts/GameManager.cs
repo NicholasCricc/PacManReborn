@@ -31,6 +31,12 @@ public class GameManager : MonoBehaviour
         SpawnFood_10();
         SpawnFood_15();
         SpawnFood_20();
+        Clear();
+    }
+
+    public void Clear()
+    {
+        GridManager.Key.Clear(); 
     }
 
     public void SpawnEnemy()
