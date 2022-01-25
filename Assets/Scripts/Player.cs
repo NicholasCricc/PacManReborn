@@ -1,5 +1,7 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -10,6 +12,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
         movePoint.parent = null;
     }
 
@@ -33,5 +37,10 @@ public class Player : MonoBehaviour
                 movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
             }
         }
+
+        
     }
+
+
+
 }

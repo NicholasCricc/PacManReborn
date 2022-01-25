@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -8454769530957353904}
   - component: {fileID: -1725484660168788270}
   - component: {fileID: 228718101304163991}
+  - component: {fileID: 3915361822853030602}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -161,7 +162,7 @@ MonoBehaviour:
     maximumInterval: 2
     visualizeSensitivity: 0
   canMove: 1
-  speed: 15
+  speed: 5
   orientation: 0
   enableRotation: 0
   rotationSpeed: 10
@@ -183,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 0}
+  target: {fileID: 3380500612830104803, guid: dc18d9f791d686149a66e6634de45018, type: 3}
 --- !u!114 &228718101304163991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,5 +197,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5989d0522a0aff145bc65fc8729fe60f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WayPointList: []
-  LocationPoint: 5
+  Player: {fileID: 0}
+--- !u!114 &3915361822853030602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3801523008897939637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0bd393b25a4a1e4ab10f94865a6c0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageToGive: 1

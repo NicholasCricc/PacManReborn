@@ -26,11 +26,24 @@ public class Tile : MonoBehaviour
         return Enemy;
     }
 
+    private void Start()
+    {
+        //setObstaclecheck();
+    }
+
     public void setObstacle(bool obstacle)
     {
         Obstacle = obstacle;
         this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = obstacle;
         this.gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = obstacle;
+     
+    }
+
+    public void setObstaclecheck()
+    {
+        //this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        this.gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = true;
+
     }
 
     public void setPlayer(bool player)

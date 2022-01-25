@@ -80,7 +80,7 @@ public class GridManager : MonoBehaviour
             }
         }
 
-        enemyObject.GetComponent<Enemy>().WayPointList = new List<GameObject>();
+        //enemyObject.GetComponent<Enemy>().WayPointList = new List<GameObject>();
 
         while (true)
         {
@@ -106,7 +106,7 @@ public class GridManager : MonoBehaviour
         }
 
         
-        enemyObject2.GetComponent<Enemy>().WayPointList = new List<GameObject>();
+        //enemyObject2.GetComponent<Enemy>().WayPointList = new List<GameObject>();
 
         AstarPath.active.Scan();
 
@@ -144,5 +144,137 @@ public class GridManager : MonoBehaviour
         //playerObject.GetComponent<Enemy>().WayPointList = new List<GameObject>();
 
         AstarPath.active.Scan();
+    }
+
+    public static void FoodSpawn_5(GameObject FoodObject)
+    {
+        float offset = (GridManager.Width / 2) - 0.5f;
+        GameObject foodObject;
+
+
+        while (true)
+        {
+            int random_x = Mathf.FloorToInt(Random.Range(1, 29));
+            int random_y = Mathf.FloorToInt(Random.Range(11, 29));
+
+            GameObject food_Position = Key[new Vector2Int(random_x - (int)offset, random_y - (int)offset)];
+            GameObject food_Position2 = Key[new Vector2Int(random_x + 1 - (int)offset, random_y - (int)offset)];
+            GameObject food_Position3 = Key[new Vector2Int(random_x - (int)offset, random_y + 1 - (int)offset)];
+            GameObject food_Position4 = Key[new Vector2Int(random_x + 1 - (int)offset, random_y + 1 - (int)offset)];
+
+            if (!food_Position.GetComponent<Tile>().isObstacle() && !food_Position2.GetComponent<Tile>().isObstacle() && !food_Position3.GetComponent<Tile>().isObstacle()
+                && !food_Position4.GetComponent<Tile>().isObstacle() && !food_Position.GetComponent<Tile>().isPlayer() && !food_Position2.GetComponent<Tile>().isPlayer() && !food_Position3.GetComponent<Tile>().isPlayer()
+                && !food_Position4.GetComponent<Tile>().isPlayer() && !food_Position.GetComponent<Tile>().isEnemy() && !food_Position2.GetComponent<Tile>().isEnemy() && !food_Position3.GetComponent<Tile>().isEnemy()
+                && !food_Position4.GetComponent<Tile>().isEnemy()) // do food
+            {
+                foodObject = Instantiate(FoodObject, food_Position.transform.position, Quaternion.identity);
+                food_Position.GetComponent<Tile>().setEnemy(true);
+                food_Position2.GetComponent<Tile>().setEnemy(true);
+                food_Position3.GetComponent<Tile>().setEnemy(true);
+                food_Position4.GetComponent<Tile>().setEnemy(true);
+                break;
+            }
+        }
+        AstarPath.active.Scan();
+    }
+
+    public static void FoodSpawn_10(GameObject FoodObject)
+    {
+        float offset = (GridManager.Width / 2) - 0.5f;
+        GameObject foodObject;
+
+
+        while (true)
+        {
+            int random_x = Mathf.FloorToInt(Random.Range(1, 29));
+            int random_y = Mathf.FloorToInt(Random.Range(11, 29));
+
+            GameObject food_Position = Key[new Vector2Int(random_x - (int)offset, random_y - (int)offset)];
+            GameObject food_Position2 = Key[new Vector2Int(random_x + 1 - (int)offset, random_y - (int)offset)];
+            GameObject food_Position3 = Key[new Vector2Int(random_x - (int)offset, random_y + 1 - (int)offset)];
+            GameObject food_Position4 = Key[new Vector2Int(random_x + 1 - (int)offset, random_y + 1 - (int)offset)];
+
+            if (!food_Position.GetComponent<Tile>().isObstacle() && !food_Position2.GetComponent<Tile>().isObstacle() && !food_Position3.GetComponent<Tile>().isObstacle()
+                && !food_Position4.GetComponent<Tile>().isObstacle() && !food_Position.GetComponent<Tile>().isPlayer() && !food_Position2.GetComponent<Tile>().isPlayer() && !food_Position3.GetComponent<Tile>().isPlayer()
+                && !food_Position4.GetComponent<Tile>().isPlayer() && !food_Position.GetComponent<Tile>().isEnemy() && !food_Position2.GetComponent<Tile>().isEnemy() && !food_Position3.GetComponent<Tile>().isEnemy()
+                && !food_Position4.GetComponent<Tile>().isEnemy()) // do food
+            {
+                foodObject = Instantiate(FoodObject, food_Position.transform.position, Quaternion.identity);
+                food_Position.GetComponent<Tile>().setEnemy(true);
+                food_Position2.GetComponent<Tile>().setEnemy(true);
+                food_Position3.GetComponent<Tile>().setEnemy(true);
+                food_Position4.GetComponent<Tile>().setEnemy(true);
+                break;
+            }
+        }
+        AstarPath.active.Scan();
+    }
+
+    public static void FoodSpawn_15(GameObject FoodObject)
+    {
+        float offset = (GridManager.Width / 2) - 0.5f;
+        GameObject foodObject;
+
+
+        while (true)
+        {
+            int random_x = Mathf.FloorToInt(Random.Range(1, 29));
+            int random_y = Mathf.FloorToInt(Random.Range(11, 29));
+
+            GameObject food_Position = Key[new Vector2Int(random_x - (int)offset, random_y - (int)offset)];
+            GameObject food_Position2 = Key[new Vector2Int(random_x + 1 - (int)offset, random_y - (int)offset)];
+            GameObject food_Position3 = Key[new Vector2Int(random_x - (int)offset, random_y + 1 - (int)offset)];
+            GameObject food_Position4 = Key[new Vector2Int(random_x + 1 - (int)offset, random_y + 1 - (int)offset)];
+
+            if (!food_Position.GetComponent<Tile>().isObstacle() && !food_Position2.GetComponent<Tile>().isObstacle() && !food_Position3.GetComponent<Tile>().isObstacle()
+                && !food_Position4.GetComponent<Tile>().isObstacle() && !food_Position.GetComponent<Tile>().isPlayer() && !food_Position2.GetComponent<Tile>().isPlayer() && !food_Position3.GetComponent<Tile>().isPlayer()
+                && !food_Position4.GetComponent<Tile>().isPlayer() && !food_Position.GetComponent<Tile>().isEnemy() && !food_Position2.GetComponent<Tile>().isEnemy() && !food_Position3.GetComponent<Tile>().isEnemy()
+                && !food_Position4.GetComponent<Tile>().isEnemy()) // do food
+            {
+                foodObject = Instantiate(FoodObject, food_Position.transform.position, Quaternion.identity);
+                food_Position.GetComponent<Tile>().setEnemy(true);
+                food_Position2.GetComponent<Tile>().setEnemy(true);
+                food_Position3.GetComponent<Tile>().setEnemy(true);
+                food_Position4.GetComponent<Tile>().setEnemy(true);
+                break;
+            }
+        }
+        AstarPath.active.Scan();
+    }
+
+    public static void FoodSpawn_20(GameObject FoodObject)
+    {
+        float offset = (GridManager.Width / 2) - 0.5f;
+        GameObject foodObject;
+
+
+        while (true)
+        {
+            int random_x = Mathf.FloorToInt(Random.Range(1, 29));
+            int random_y = Mathf.FloorToInt(Random.Range(11, 29));
+
+            GameObject food_Position = Key[new Vector2Int(random_x - (int)offset, random_y - (int)offset)];
+            GameObject food_Position2 = Key[new Vector2Int(random_x + 1 - (int)offset, random_y - (int)offset)];
+            GameObject food_Position3 = Key[new Vector2Int(random_x - (int)offset, random_y + 1 - (int)offset)];
+            GameObject food_Position4 = Key[new Vector2Int(random_x + 1 - (int)offset, random_y + 1 - (int)offset)];
+
+            if (!food_Position.GetComponent<Tile>().isObstacle() && !food_Position2.GetComponent<Tile>().isObstacle() && !food_Position3.GetComponent<Tile>().isObstacle()
+                && !food_Position4.GetComponent<Tile>().isObstacle() && !food_Position.GetComponent<Tile>().isPlayer() && !food_Position2.GetComponent<Tile>().isPlayer() && !food_Position3.GetComponent<Tile>().isPlayer()
+                && !food_Position4.GetComponent<Tile>().isPlayer() && !food_Position.GetComponent<Tile>().isEnemy() && !food_Position2.GetComponent<Tile>().isEnemy() && !food_Position3.GetComponent<Tile>().isEnemy()
+                && !food_Position4.GetComponent<Tile>().isEnemy()) // do food
+            {
+                foodObject = Instantiate(FoodObject, food_Position.transform.position, Quaternion.identity);
+                food_Position.GetComponent<Tile>().setEnemy(true);
+                food_Position2.GetComponent<Tile>().setEnemy(true);
+                food_Position3.GetComponent<Tile>().setEnemy(true);
+                food_Position4.GetComponent<Tile>().setEnemy(true);
+                break;
+            }
+        }
+        AstarPath.active.Scan();
+    }
+    public static void Easy()
+    {
+
     }
 }

@@ -238,10 +238,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbbbfb4fbfa1874b84ad24525d014c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1336086106458245960, guid: dc18d9f791d686149a66e6634de45018, type: 3}
+  Player: {fileID: 4774152533939580863, guid: dc18d9f791d686149a66e6634de45018, type: 3}
   Tile: {fileID: 527753118006432020, guid: 6922a6a71af1e174594d0c364bb5f9ab, type: 3}
   Obstacle: {fileID: 2834022505357563646, guid: d83b672f4ffea7444b5c31f29d3c141a, type: 3}
-  Food: {fileID: 108896628869966826, guid: 37a3f97f5c6b0704293b47e43e7c1519, type: 3}
+  Food_5: {fileID: 108896628869966826, guid: 37a3f97f5c6b0704293b47e43e7c1519, type: 3}
+  Food_10: {fileID: 108896628869966826, guid: ad2ba867c40e3e548ae5faee3fe25480, type: 3}
+  Food_15: {fileID: 108896628869966826, guid: 4d27d78443f5cb4489de2a67c6532a14, type: 3}
+  Food_20: {fileID: 108896628869966826, guid: d7abb583eac959946a5f02f3de696f8d, type: 3}
   Enemy: {fileID: 3801523008897939637, guid: fa2296fbaa29ba04284c8e48770ca27e, type: 3}
 --- !u!4 &889208657
 Transform:
@@ -433,6 +436,7 @@ RectTransform:
   m_Children:
   - {fileID: 1827469292}
   - {fileID: 1589213555}
+  - {fileID: 2015159663}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -453,7 +457,7 @@ GameObject:
   - component: {fileID: 1589213557}
   - component: {fileID: 1589213556}
   m_Layer: 5
-  m_Name: Lives
+  m_Name: LivesTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -511,7 +515,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Lives: 0'
+  m_Text: 'Lives: '
 --- !u!222 &1589213557
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -665,3 +669,96 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2015159662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2015159663}
+  - component: {fileID: 2015159666}
+  - component: {fileID: 2015159665}
+  - component: {fileID: 2015159664}
+  m_Layer: 5
+  m_Name: LivesCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2015159663
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015159662}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1487233386}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 383.4, y: 282.61}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2015159664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015159662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd8e8e4d1e943b4580b2e94f520c24d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPlayerHealth: 3
+--- !u!114 &2015159665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015159662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &2015159666
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015159662}
+  m_CullTransparentMesh: 1
